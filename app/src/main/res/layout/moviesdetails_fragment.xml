@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/movies_green">
+
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Chappie"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="35dp" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"></com.android.volley.toolbox.NetworkImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:orientation="vertical"
+                    android:paddingLeft="50dp">
+
+                    <TextView
+                        android:id="@+id/year_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="2015"
+                        android:textColor="@color/grey_700"
+                        android:textSize="30sp" />
+
+
+
+                    <TextView
+                        android:id="@+id/rate_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="8.1/10"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/favBtn"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="88dp"
+                        android:layout_height="36dp"
+                        android:background="@color/lightgreen"
+                        android:text="Mark as Favorite"
+                        android:textColor="@color/grey_700" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="16dp"
+                android:text="every kdlfj lsjdldjf lsjfldjf lsjlsjfld fkllldkf sjdlksd jlskdlskd klsdklsdk kskdsd"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/grey_700" />
+
+            <View
+                android:id="@+id/SplitLine_hor1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/black" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/trailer_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trailers:"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/grey_700" />
+
+
+                <com.example.popularmovies.NonScrollListView
+                    android:id="@+id/listview_trailers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.example.popularmovies.NonScrollListView>
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
