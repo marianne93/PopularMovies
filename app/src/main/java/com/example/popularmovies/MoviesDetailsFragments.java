@@ -45,7 +45,7 @@ public class MoviesDetailsFragments extends Fragment  {
     private ImageLoader mimageLoader;
     private ListView mlistView;
     private Button mFavBtn;
-    TrailersAdapter trailersAdapter;
+    private TrailersAdapter trailersAdapter;
     public static ArrayList<Trailer> movieTrailers = new ArrayList<Trailer>();
     public static ArrayList<Movie> FavoriteMovies = new ArrayList<Movie>();
 

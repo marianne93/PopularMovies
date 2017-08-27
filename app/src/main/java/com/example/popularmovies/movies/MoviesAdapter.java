@@ -1,4 +1,4 @@
-package com.example.popularmovies;
+package com.example.popularmovies.movies;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.example.popularmovies.MoviesFragment;
+import com.example.popularmovies.MySingleton;
+import com.example.popularmovies.R;
 
 import java.util.ArrayList;
 
