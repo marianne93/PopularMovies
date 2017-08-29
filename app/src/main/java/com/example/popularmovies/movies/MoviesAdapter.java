@@ -61,7 +61,6 @@ public class MoviesAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mcontext).inflate(R.layout.grid_image_item, viewGroup, false);
         }
-
         NetworkImageView imageView = (NetworkImageView) view.findViewById(R.id.imageView);
         if (MoviesFragment.movies.size() != 0) {
 
