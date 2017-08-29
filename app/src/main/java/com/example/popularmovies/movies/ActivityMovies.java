@@ -16,6 +16,8 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_toolbar_fragment);
+        initializeViews();
+        loadFragment();
     }
 
     @Override

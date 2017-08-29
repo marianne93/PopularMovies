@@ -7,6 +7,7 @@ import com.android.volley.VolleyError;
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.PresenterBase;
 import com.example.popularmovies.common.helpers.Parser;
+import com.example.popularmovies.common.helpers.ServicesHelper;
 import com.example.popularmovies.common.helpers.VolleyErrorHandler;
 import com.example.popularmovies.common.models.dto.MoviesServiceResponse;
 
@@ -20,12 +21,14 @@ public class PresenterMovies extends PresenterBase {
     private ViewMovies viewMovies;
     private Context context;
 
-    public PresenterMovies(ViewMovies viewMovies) {
+    public PresenterMovies(Context context, ViewMovies viewMovies) {
         this.viewMovies = viewMovies;
+        this.context = context;
     }
 
     public void getMovies(String sortParam) {
         viewMovies.showProgress(true);
+        ServicesHelper.getInstance(context).getMovies(sortParam, successListener, errorListener);
     }
 
     private Response.Listener<JSONObject> successListener = new Response.Listener<JSONObject>() {

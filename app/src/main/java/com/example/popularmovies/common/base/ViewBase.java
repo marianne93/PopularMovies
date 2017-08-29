@@ -6,7 +6,4 @@ package com.example.popularmovies.common.base;
 
 public interface ViewBase {
     void showProgress(boolean show);
-
-    void onError(String error);
-
 }

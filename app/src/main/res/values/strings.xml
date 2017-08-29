@@ -17,5 +17,6 @@
     <string name="error_server_error" translatable="false">@string/somethingWrong</string>
     <string name="noInternet">No internet connection. Please connect to the internet to be able to use the application</string>
     <string name="errorMsg">Service unavailable. Please try again later.</string>
+    <string name="no_movies">there is no Movies</string>
 
 </resources>

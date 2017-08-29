@@ -1,10 +1,226 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
     </style>
     <style name="SettingsTheme" parent="AppTheme">
+    </style>
+    <!--Fonts-->
+    <!-- Normal White -->
+    <style name="textNormalWhite">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textSmallWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textXMediumWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_xmedium</item>
+    </style>
+
+    <style name="textMediumWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textLargeWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textxLargeWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
+    </style>
+
+    <style name="textxxxLargeWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_xxxlarge</item>
+    </style>
+
+    <style name="textxxxxLargeWhite" parent="textNormalWhite">
+        <item name="android:textSize">@dimen/font_xxxxlarge</item>
+    </style>
+
+    <!-- Bold White-->
+    <style name="textBoldWhite">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textSmallWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textMediumWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textLargeWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textxLargeWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
+    </style>
+
+    <style name="textxxxLargeWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_xxxlarge</item>
+    </style>
+
+    <style name="textxxxxLargeWhiteBold" parent="textBoldWhite">
+        <item name="android:textSize">@dimen/font_xxxxlarge</item>
+    </style>
+
+
+    <!-- Light White-->
+    <style name="textLightWhite">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textSmallWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textMediumWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textLargeWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textxLargeWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
+    </style>
+
+    <style name="textxxxLargeWhiteLight" parent="textLightWhite">
+        <item name="android:textSize">@dimen/font_xxxlarge</item>
+    </style>
+
+
+    <!-- Light Blue-->
+    <style name="textLightBlue">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textSmallBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textMediumBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textLargeBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textxLargeBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
+    </style>
+
+    <style name="textxxxLargeBlueLight" parent="textLightBlue">
+        <item name="android:textSize">@dimen/font_xxxlarge</item>
+    </style>
+
+    <!-- Bold White-->
+    <style name="textBoldBlue">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textSmallBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textMediumBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textLargeBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textxLargeBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
+    </style>
+
+    <style name="textxxxLargeBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_xxxlarge</item>
+    </style>
+
+    <style name="textxxxxLargeBlueBold" parent="textBoldBlue">
+        <item name="android:textSize">@dimen/font_xxxxlarge</item>
+    </style>
+
+    <!-- Light dark grey-->
+    <style name="textLightBlack">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textMediumBlackLight" parent="textLightBlack">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textSmallBlackLight" parent="textLightBlack">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textLargeBlackLight" parent="textLightBlack">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="textLargeBlackLightWithLink" parent="textLightBlack">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+    <!-- Bold dark grey-->
+    <style name="textBoldBlack">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textMediumBlackBold" parent="textBoldBlack">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="textSmallBlackBold" parent="textBoldBlack">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="textLargeBlackBold" parent="textBoldBlack">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+    <style name="textxLargeBlackBold" parent="textBoldBlack">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="textxxLargeBlackBold" parent="textBoldBlack">
+        <item name="android:textSize">@dimen/font_xxlarge</item>
     </style>
 
 </resources>

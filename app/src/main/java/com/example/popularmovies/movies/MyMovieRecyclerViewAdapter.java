@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.helpers.Constants;
@@ -37,8 +38,9 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         String url = Constants.IMAGE_BASE_URL + movies.get(position).getPosterPath();
-        Picasso.with(context)
+        Picasso.with(holder.imgMovie.getContext())
                 .load(url)
+                .placeholder(R.drawable.placeholder)
                 .fit()
                 .into(holder.imgMovie);
         holder.mView.setOnClickListener(new View.OnClickListener() {
