@@ -2,7 +2,6 @@ package com.example.popularmovies.movies;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -10,7 +9,8 @@ import android.view.MenuItem;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.ActivityBase;
-import com.example.popularmovies.common.models.Result;
+import com.example.popularmovies.common.models.Movie;
+import com.example.popularmovies.movies_details.ActivityMovieDetails;
 import com.example.popularmovies.settings.ActivitySettings;
 
 public class ActivityMovies extends ActivityBase implements FragmentMovie.OnListFragmentInteractionListener {
@@ -61,7 +61,7 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
     }
 
     @Override
-    public void onListFragmentInteraction(int position) {
-
+    public void onListFragmentInteraction(Movie movie) {
+        ActivityMovieDetails.startActivity(this, movie);
     }
 }

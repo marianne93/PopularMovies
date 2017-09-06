@@ -1,6 +1,6 @@
 package com.example.popularmovies.common.models.dto;
 
-import com.example.popularmovies.common.models.Result;
+import com.example.popularmovies.common.models.Movie;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,7 +22,7 @@ public class MoviesServiceResponse {
     private Integer totalPages;
     @SerializedName("results")
     @Expose
-    private List<Result> results = null;
+    private List<Movie> results = null;
 
     public Integer getPage() {
         return page;
@@ -48,11 +48,11 @@ public class MoviesServiceResponse {
         this.totalPages = totalPages;
     }
 
-    public List<Result> getResults() {
+    public List<Movie> getResults() {
         return results;
     }
 
-    public void setResults(List<Result> results) {
+    public void setResults(List<Movie> results) {
         this.results = results;
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/padding_medium"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtTrailer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/padding_xxlarge"
+        android:drawableStart="@drawable/icon_play"
+        android:gravity="center_vertical"
+        android:text="Trailer"
+        android:textSize="@dimen/font_xlarge" />
+</FrameLayout>

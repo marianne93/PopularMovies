@@ -49,7 +49,8 @@
     <dimen name="card_height">230dp</dimen>
     <dimen name="rounded_login_width">126dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="poster_width">250dp</dimen>
+    <dimen name="poster_height">250dp</dimen>
+    <dimen name="movie_poster_height_details">200dp</dimen>
 
 
 </resources>

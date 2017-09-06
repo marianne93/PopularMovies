@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.helpers.Constants;
-import com.example.popularmovies.common.models.Result;
+import com.example.popularmovies.common.models.Movie;
 import com.example.popularmovies.movies.FragmentMovie.OnListFragmentInteractionListener;
 import com.squareup.picasso.Picasso;
 
@@ -18,11 +17,11 @@ import java.util.List;
 
 public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecyclerViewAdapter.ViewHolder> {
 
-    private List<Result> movies;
+    private List<Movie> movies;
     private OnListFragmentInteractionListener listFragmentInteractionListener;
     private Context context;
 
-    public MyMovieRecyclerViewAdapter(Context context, List<Result> movies, OnListFragmentInteractionListener listFragmentInteractionListener) {
+    public MyMovieRecyclerViewAdapter(Context context, List<Movie> movies, OnListFragmentInteractionListener listFragmentInteractionListener) {
         this.movies = movies;
         this.listFragmentInteractionListener = listFragmentInteractionListener;
         this.context = context;
@@ -49,7 +48,7 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
                 if (null != listFragmentInteractionListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    listFragmentInteractionListener.onListFragmentInteraction(holder.getAdapterPosition());
+                    listFragmentInteractionListener.onListFragmentInteraction(movies.get(holder.getAdapterPosition()));
                 }
             }
         });

@@ -26,7 +26,7 @@ public class ServicesHelper {
     private final String APPID_PARAM = "api_key";
 
     public enum Tag {
-        ALL_MOVIES
+        TRAILERS, ALL_MOVIES
     }
 
     private ServicesHelper(Context context) {
@@ -54,6 +54,17 @@ public class ServicesHelper {
                 .appendQueryParameter(APPID_PARAM, Constants.OPEN_POPULAR_MOVIES_API_KEY);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(MOVIES_URL, null, successListener, errorListener);
         jsonObjectRequest.setTag(Tag.ALL_MOVIES);
+        //Adding our request to the queue
+        addToRequestQueue(jsonObjectRequest);
+
+    }
+
+    public void getMoviesTrailer(int movieID, Response.Listener<JSONObject> successListener, Response.ErrorListener errorListener) {
+        String MOVIES_TRAILER_URL = BASE_URL + String.valueOf(movieID) + "/videos";
+        MOVIES_TRAILER_URL += new Uri.Builder()
+                .appendQueryParameter(APPID_PARAM, Constants.OPEN_POPULAR_MOVIES_API_KEY);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(MOVIES_TRAILER_URL, null, successListener, errorListener);
+        jsonObjectRequest.setTag(Tag.TRAILERS);
         //Adding our request to the queue
         addToRequestQueue(jsonObjectRequest);
 

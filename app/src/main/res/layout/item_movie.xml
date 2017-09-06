@@ -6,6 +6,6 @@
     <ImageView
         android:id="@+id/imgMovie"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/poster_width"
+        android:layout_height="@dimen/poster_height"
         android:contentDescription="" />
 </FrameLayout>

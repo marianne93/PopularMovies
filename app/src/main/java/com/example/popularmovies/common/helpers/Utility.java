@@ -1,9 +1,12 @@
-package com.example.popularmovies;
+package com.example.popularmovies.common.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.renderscript.Sampler;
+
+import com.example.popularmovies.Movie;
+import com.example.popularmovies.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

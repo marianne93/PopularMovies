@@ -1,6 +1,7 @@
 package com.example.popularmovies.common.helpers;
 
 import com.example.popularmovies.common.models.dto.MoviesServiceResponse;
+import com.example.popularmovies.common.models.dto.MoviesTrailersServiceResponse;
 
 /**
  * Created by Marianne.Wazif on 27-Aug-17.
@@ -18,7 +19,12 @@ public class Parser {
 
     private Parser() {
     }
+
     public MoviesServiceResponse getMoviesResponse(String moviesResponseString) {
         return MyApplication.getmGson().fromJson(moviesResponseString, MoviesServiceResponse.class);
+    }
+
+    public MoviesTrailersServiceResponse getMoviesTrailersResponse(String moviesTrailersResponseString) {
+        return MyApplication.getmGson().fromJson(moviesTrailersResponseString, MoviesTrailersServiceResponse.class);
     }
 }

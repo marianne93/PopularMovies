@@ -1,10 +1,8 @@
 package com.example.popularmovies;
 
-import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -22,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
+import com.example.popularmovies.common.helpers.Utility;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,13 +63,13 @@ public class MoviesDetailsFragments extends Fragment  {
         }
         //Toast.makeText(getActivity(),String.valueOf(mposition) ,Toast.LENGTH_LONG).show();
         View rootView = inflater.inflate(R.layout.moviesdetails_fragment, container, false);
-        mname = (TextView) rootView.findViewById(R.id.name_textview);
-        mimageview = (NetworkImageView) rootView.findViewById(R.id.imageView);
-        myear = (TextView) rootView.findViewById(R.id.year_textview);
-         mOverview = (TextView) rootView.findViewById(R.id.description_textview);
-        mrate = (TextView) rootView.findViewById(R.id.rate_textview);
+        mname = (TextView) rootView.findViewById(R.id.txtMovieName);
+        mimageview = (NetworkImageView) rootView.findViewById(R.id.imgMovie);
+        myear = (TextView) rootView.findViewById(R.id.txtYear);
+         mOverview = (TextView) rootView.findViewById(R.id.txtDescription);
+        mrate = (TextView) rootView.findViewById(R.id.txtRate);
         mlistView = (NonScrollListView) rootView.findViewById(R.id.listview_trailers);
-        mFavBtn = (Button) rootView.findViewById(R.id.favBtn);
+        mFavBtn = (Button) rootView.findViewById(R.id.txtFav);
 
          trailersAdapter = new TrailersAdapter(getActivity());
         mlistView.setAdapter(trailersAdapter);

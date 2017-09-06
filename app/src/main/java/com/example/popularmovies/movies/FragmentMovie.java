@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.FragmentBase;
 import com.example.popularmovies.common.helpers.Constants;
-import com.example.popularmovies.common.models.Result;
+import com.example.popularmovies.common.models.Movie;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
     private OnListFragmentInteractionListener mListener;
     private RecyclerView rvMovies;
     private Context context;
-    private List<Result> moviesList;
+    private List<Movie> moviesList;
     private ProgressWheel progress_wheel;
     private TextView txtErrorMessage;
     private PresenterMovies presenterMovies;
@@ -119,7 +119,7 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
     }
 
     @Override
-    public void onMoviesLoadedSucceed(List<Result> moviesList) {
+    public void onMoviesLoadedSucceed(List<Movie> moviesList) {
         this.moviesList.addAll(moviesList);
         if (this.moviesList.size() > 0)
             moviesAdapter.notifyDataSetChanged();
@@ -146,6 +146,6 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(int position);
+        void onListFragmentInteraction(Movie movie);
     }
 }

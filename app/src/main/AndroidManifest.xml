@@ -23,7 +23,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.popularmovies.MainActivity" />
         </activity>
-        <activity android:name=".movies.ActivityMovies">
+        <activity android:name=".movies.ActivityMovies"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +34,10 @@
         <activity
             android:name=".settings.ActivitySettings"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".movies.ActivityMovies"/>
+            android:parentActivityName=".movies.ActivityMovies" />
+        <activity
+            android:name=".movies_details.ActivityMovieDetails"
+            android:parentActivityName=".movies.ActivityMovies" />
     </application>
 
 </manifest>

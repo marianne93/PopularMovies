@@ -1,9 +1,8 @@
 package com.example.popularmovies.movies;
 
 import com.example.popularmovies.common.base.ViewBase;
-import com.example.popularmovies.common.models.Result;
+import com.example.popularmovies.common.models.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +10,6 @@ import java.util.List;
  */
 
 public interface ViewMovies extends ViewBase {
-    void onMoviesLoadedSucceed(List<Result> moviesList);
+    void onMoviesLoadedSucceed(List<Movie> moviesList);
     void onMoviesError(String error);
 }
