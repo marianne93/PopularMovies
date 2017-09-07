@@ -1,6 +1,7 @@
 package com.example.popularmovies.settings;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,8 @@ import com.example.popularmovies.R;
  */
 public class FragmentSettings extends PreferenceFragmentCompat implements
         SharedPreferences.OnSharedPreferenceChangeListener {
+    private OnSettingsFragmentInteractionListener mListener;
+
     public static FragmentSettings newInstance() {
         return new FragmentSettings();
     }
@@ -28,6 +31,23 @@ public class FragmentSettings extends PreferenceFragmentCompat implements
         // Add the shared preference change listener
         getPreferenceScreen().getSharedPreferences()
                 .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnSettingsFragmentInteractionListener) {
+            mListener = (OnSettingsFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnSettingsFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     @Override
@@ -42,6 +62,7 @@ public class FragmentSettings extends PreferenceFragmentCompat implements
         if (preference != null && preference instanceof ListPreference) {
             ListPreference listPref = (ListPreference) preference;
             preference.setSummary(listPref.getEntry());
+            mListener.onSortTypeChanged();
         }
     }
 
@@ -51,5 +72,9 @@ public class FragmentSettings extends PreferenceFragmentCompat implements
         // Remove the shared preference change listener
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    public interface OnSettingsFragmentInteractionListener {
+        void onSortTypeChanged();
     }
 }

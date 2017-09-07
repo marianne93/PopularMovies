@@ -14,18 +14,18 @@ import android.widget.TextView;
 public class TrailersAdapter extends BaseAdapter {
     private Context mcontext;
 
-    public TrailersAdapter(Context context ) {
+    public TrailersAdapter(Context context) {
         mcontext = context;
 
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if(view == null) {
+        if (view == null) {
             view = LayoutInflater.from(mcontext).inflate(R.layout.list_trailer_item, viewGroup, false);
         }
         TextView textview = (TextView) view.findViewById(R.id.list_item_trailer_textview);
-        if (MoviesDetailsFragments.movieTrailers.size()!=0) {
+        if (MoviesDetailsFragments.movieTrailers.size() != 0) {
             textview.setText(MoviesDetailsFragments.movieTrailers.get(i).name);
         }
 
@@ -40,7 +40,7 @@ public class TrailersAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return  MoviesDetailsFragments.movieTrailers.get(i);
+        return MoviesDetailsFragments.movieTrailers.get(i);
     }
 
     @Override

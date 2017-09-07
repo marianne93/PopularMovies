@@ -1,11 +1,13 @@
 package com.example.popularmovies.movies;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.ActivityBase;
@@ -15,6 +17,7 @@ import com.example.popularmovies.settings.ActivitySettings;
 
 public class ActivityMovies extends ActivityBase implements FragmentMovie.OnListFragmentInteractionListener {
     private Toolbar toolbar;
+    private static final int SETTINGS_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            startActivity(new Intent(this, ActivitySettings.class));
+            startActivityForResult(ActivitySettings.createSettingsActivityIntent(this), SETTINGS_REQUEST_CODE);
             return true;
         }
 
@@ -63,5 +66,15 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
     @Override
     public void onListFragmentInteraction(Movie movie) {
         ActivityMovieDetails.startActivity(this, movie);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SETTINGS_REQUEST_CODE) {
+                loadFragment();
+            }
+        }
     }
 }

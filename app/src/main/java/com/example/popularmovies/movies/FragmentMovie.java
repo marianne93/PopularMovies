@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.FragmentBase;
+import com.example.popularmovies.common.helpers.AppPreferences;
 import com.example.popularmovies.common.helpers.Constants;
+import com.example.popularmovies.common.helpers.ServicesHelper;
 import com.example.popularmovies.common.models.Movie;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -69,7 +71,7 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        sortParam = "popular";
+        sortParam = AppPreferences.getString(AppPreferences.SORT_KEY,context,getString(R.string.pref_sorts_popular));
         presenterMovies.getMovies(sortParam);
     }
 
@@ -147,5 +149,13 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
      */
     public interface OnListFragmentInteractionListener {
         void onListFragmentInteraction(Movie movie);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (ServicesHelper.getInstance(context).getRequestQueue() != null) {
+            ServicesHelper.getInstance(context).getRequestQueue().cancelAll(ServicesHelper.Tag.ALL_MOVIES);
+        }
     }
 }

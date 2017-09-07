@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.FragmentBase;
 import com.example.popularmovies.common.helpers.Constants;
+import com.example.popularmovies.common.helpers.ServicesHelper;
 import com.example.popularmovies.common.helpers.Utility;
 import com.example.popularmovies.common.models.Movie;
 import com.example.popularmovies.common.models.Trailer;
@@ -186,5 +187,12 @@ public class FragmentMovieDetails extends FragmentBase implements ViewMoviesDeta
      */
     public interface OnMovieDetailsFragmentInteractionListener {
         void onTrailerClicked(String videoID);
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (ServicesHelper.getInstance(context).getRequestQueue() != null) {
+            ServicesHelper.getInstance(context).getRequestQueue().cancelAll(ServicesHelper.Tag.TRAILERS);
+        }
     }
 }
