@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Marianne.Wazif on 06-Sep-17.
  */
 
-public class MovieTrailerRecyclerViewAdapter extends RecyclerView.Adapter<MovieTrailerRecyclerViewAdapter.ViewHolder> {
+public class MovieTrailerRecyclerViewAdapter extends RecyclerView.Adapter<MovieTrailerRecyclerViewAdapter.ViewHolder>  {
 
     private Context context;
     private FragmentMovieDetails.OnMovieDetailsFragmentInteractionListener movieDetailsFragmentInteractionListener;
@@ -38,24 +38,23 @@ public class MovieTrailerRecyclerViewAdapter extends RecyclerView.Adapter<MovieT
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.txtTrailer.setText(trailers.get(position).getName());
-        holder.itemView.setOnClickListener(itemViewOnClickListener);
-    }
-
-    private View.OnClickListener itemViewOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (null != movieDetailsFragmentInteractionListener) {
-                movieDetailsFragmentInteractionListener.onTrailerClicked(trailers.get(viewHolder.getAdapterPosition()).getKey());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != movieDetailsFragmentInteractionListener) {
+                    movieDetailsFragmentInteractionListener.onTrailerClicked(trailers.get(holder.getAdapterPosition()).getKey());
+                }
             }
-        }
-    };
+        });
+    }
 
     @Override
     public int getItemCount() {
         return this.trailers.size();
     }
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private View itemView;

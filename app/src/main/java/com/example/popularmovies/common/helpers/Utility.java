@@ -1,7 +1,10 @@
 package com.example.popularmovies.common.helpers;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.renderscript.Sampler;
 
@@ -49,5 +52,15 @@ public class Utility {
     }
     public static ArrayList<com.example.popularmovies.common.models.Movie> getAllFavoriteMovies(String favoriteMovies) {
        return Parser.getInstance().getFavoriteMovies(favoriteMovies);
+    }
+    public static void openYouTube(Context context , String videoID){
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoID));
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException ex) {
+            Intent intent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://www.youtube.com/watch?v=" + videoID));
+            context.startActivity(intent);
+        }
     }
 }

@@ -11,20 +11,26 @@ import android.view.View;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.ActivityBase;
+import com.example.popularmovies.common.helpers.Utility;
 import com.example.popularmovies.common.models.Movie;
 import com.example.popularmovies.movies_details.ActivityMovieDetails;
+import com.example.popularmovies.movies_details.FragmentMovieDetails;
 import com.example.popularmovies.settings.ActivitySettings;
 
-public class ActivityMovies extends ActivityBase implements FragmentMovie.OnListFragmentInteractionListener {
+public class ActivityMovies extends ActivityBase implements FragmentMovie.OnListFragmentInteractionListener,FragmentMovieDetails.OnMovieDetailsFragmentInteractionListener {
     private Toolbar toolbar;
     private static final int SETTINGS_REQUEST_CODE = 2;
-
+    private boolean mTwoPane;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_toolbar_fragment);
         initializeViews();
-        loadFragment();
+        mTwoPane = findViewById(R.id.frmMoviesDetailsFragmentContainer) != null;
+        if (savedInstanceState == null) {
+            loadFragment();
+        }
+
     }
 
     @Override
@@ -48,7 +54,6 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             startActivityForResult(ActivitySettings.createSettingsActivityIntent(this), SETTINGS_REQUEST_CODE);
             return true;
@@ -65,7 +70,11 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
 
     @Override
     public void onListFragmentInteraction(Movie movie) {
-        ActivityMovieDetails.startActivity(this, movie);
+        if (!mTwoPane) {
+            ActivityMovieDetails.startActivity(this, movie);
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frmMoviesDetailsFragmentContainer, FragmentMovieDetails.newInstance(movie)).commit();
+        }
     }
 
     @Override
@@ -76,5 +85,10 @@ public class ActivityMovies extends ActivityBase implements FragmentMovie.OnList
                 loadFragment();
             }
         }
+    }
+
+    @Override
+    public void onTrailerClicked(String videoID) {
+        Utility.openYouTube(this , videoID);
     }
 }

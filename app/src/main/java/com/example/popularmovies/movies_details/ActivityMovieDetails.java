@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.ActivityBase;
 import com.example.popularmovies.common.helpers.Constants;
+import com.example.popularmovies.common.helpers.Utility;
 import com.example.popularmovies.common.models.Movie;
 
 public class ActivityMovieDetails extends ActivityBase implements FragmentMovieDetails.OnMovieDetailsFragmentInteractionListener {
@@ -53,13 +54,6 @@ public class ActivityMovieDetails extends ActivityBase implements FragmentMovieD
 
     @Override
     public void onTrailerClicked(String videoID) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoID));
-            startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Intent intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://www.youtube.com/watch?v=" + videoID));
-            startActivity(intent);
-        }
+        Utility.openYouTube(this , videoID);
     }
 }
