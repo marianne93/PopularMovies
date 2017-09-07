@@ -98,5 +98,7 @@
     <string name="movies_detail">MovieDetail</string>
     <string name="mark_as_favorite">MARK AS\nFAVORITE</string>
     <string name="rate_format" formatted="false">%.01f /%s</string>
+    <string name="movie_is_existed">This movie is already added</string>
+    <string name="movie_is_added">Movie is added as favorite</string>
 
 </resources>

@@ -91,24 +91,24 @@ public class MoviesDetailsFragments extends Fragment  {
             }
         });
 
-        mFavBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Movie movie = MoviesFragment.movies.get(mposition);
-                Boolean found = Utility.containsMovie(FavoriteMovies , movie.id);
-                if (!found)
-                {
-                    FavoriteMovies.add(movie);
-                    Toast.makeText(getActivity() , "Added to Favorites", Toast.LENGTH_LONG).show();
-
-                }
-                else
-                    Toast.makeText(getActivity() , "This movie is existed", Toast.LENGTH_LONG).show();
-
-
-            }
-        });
+//        mFavBtn.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Movie movie = MoviesFragment.movies.get(mposition);
+//                Boolean found = Utility.isFavorite(FavoriteMovies , movie.id);
+//                if (!found)
+//                {
+//                    FavoriteMovies.add(movie);
+//                    Toast.makeText(getActivity() , "Added to Favorites", Toast.LENGTH_LONG).show();
+//
+//                }
+//                else
+//                    Toast.makeText(getActivity() , "This movie is existed", Toast.LENGTH_LONG).show();
+//
+//
+//            }
+//        });
 
 
 

@@ -10,6 +10,7 @@ import com.example.popularmovies.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Marianne on 09-Jul-16.
@@ -38,12 +39,15 @@ public class Utility {
         return String.valueOf(rate);
 
     }
-    public static boolean containsMovie(ArrayList<Movie> movies, int id) {
-        for(Movie movie : movies) {
+    public static boolean isFavorite(ArrayList<com.example.popularmovies.common.models.Movie> movies, int id) {
+        for(com.example.popularmovies.common.models.Movie movie : movies) {
             if( movie.getId() == id) {
                 return true;
             }
         }
         return false;
+    }
+    public static ArrayList<com.example.popularmovies.common.models.Movie> getAllFavoriteMovies(String favoriteMovies) {
+       return Parser.getInstance().getFavoriteMovies(favoriteMovies);
     }
 }

@@ -1,7 +1,6 @@
 package com.example.popularmovies.movies_details;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
@@ -12,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.common.base.FragmentBase;
+import com.example.popularmovies.common.helpers.AppPreferences;
 import com.example.popularmovies.common.helpers.Constants;
+import com.example.popularmovies.common.helpers.MyApplication;
 import com.example.popularmovies.common.helpers.ServicesHelper;
 import com.example.popularmovies.common.helpers.Utility;
 import com.example.popularmovies.common.models.Movie;
@@ -40,6 +42,7 @@ public class FragmentMovieDetails extends FragmentBase implements ViewMoviesDeta
     private List<Trailer> movieTrailers;
     private MovieTrailerRecyclerViewAdapter movieTrailerRecyclerViewAdapter;
     private PresenterMoviesDetails presenterMoviesDetails;
+    private ArrayList<Movie> favoriteMovies;
 
     public FragmentMovieDetails() {
         // Required empty public constructor
@@ -146,9 +149,21 @@ public class FragmentMovieDetails extends FragmentBase implements ViewMoviesDeta
     View.OnClickListener txtFavOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            favoriteMovies = Utility.getAllFavoriteMovies(AppPreferences.getString(AppPreferences.KEY_FAVORITES_MOVIES, context, ""));
+            if (favoriteMovies.size() != 0 && !Utility.isFavorite(favoriteMovies, movie.getId())) {
+                addMovieToFavorites();
+                Toast.makeText(context , getString(R.string.movie_is_added),Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(context , getString(R.string.movie_is_existed),Toast.LENGTH_SHORT).show();
 
         }
     };
+
+    private void addMovieToFavorites() {
+        favoriteMovies.add(movie);
+        AppPreferences.setString(AppPreferences.KEY_FAVORITES_MOVIES, MyApplication.getmGson().toJson(favoriteMovies), context);
+    }
 
     @Override
     public void showProgress(boolean show) {
@@ -188,6 +203,7 @@ public class FragmentMovieDetails extends FragmentBase implements ViewMoviesDeta
     public interface OnMovieDetailsFragmentInteractionListener {
         void onTrailerClicked(String videoID);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

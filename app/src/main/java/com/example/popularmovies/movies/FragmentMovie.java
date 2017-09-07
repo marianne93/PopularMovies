@@ -15,6 +15,7 @@ import com.example.popularmovies.common.base.FragmentBase;
 import com.example.popularmovies.common.helpers.AppPreferences;
 import com.example.popularmovies.common.helpers.Constants;
 import com.example.popularmovies.common.helpers.ServicesHelper;
+import com.example.popularmovies.common.helpers.Utility;
 import com.example.popularmovies.common.models.Movie;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -71,8 +72,15 @@ public class FragmentMovie extends FragmentBase implements ViewMovies {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        sortParam = AppPreferences.getString(AppPreferences.SORT_KEY,context,getString(R.string.pref_sorts_popular));
-        presenterMovies.getMovies(sortParam);
+        displayMoviesBySortType();
+    }
+
+    private void displayMoviesBySortType() {
+        sortParam = AppPreferences.getString(AppPreferences.SORT_KEY, context, getString(R.string.pref_sorts_popular));
+        if (sortParam.equalsIgnoreCase(getString(R.string.pref_sorts_favorites))) {
+            onMoviesLoadedSucceed(Utility.getAllFavoriteMovies(AppPreferences.getString(AppPreferences.KEY_FAVORITES_MOVIES, context, "")));
+        } else
+            presenterMovies.getMovies(sortParam);
     }
 
     private void initRecyclerView() {

@@ -11,7 +11,7 @@ public class AppPreferences {
 
 
     public static final String APP_LOCALE_KEY = "appLocale";
-    public static final String KEY_USER_INFO = "key_user";
+    public static final String KEY_FAVORITES_MOVIES = "fav_movies_key";
     public static final String SORT_KEY = "sorts";
 
     //======================================================================
